@@ -1,20 +1,20 @@
 /*
  * Copyright (c) 2016, Codename One
  *
- * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated 
- * documentation files (the "Software"), to deal in the Software without restriction, including without limitation 
- * the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, 
+ * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
+ * documentation files (the "Software"), to deal in the Software without restriction, including without limitation
+ * the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software,
  * and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
  *
- * The above copyright notice and this permission notice shall be included in all copies or substantial portions 
+ * The above copyright notice and this permission notice shall be included in all copies or substantial portions
  * of the Software.
  *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, 
- * INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A 
- * PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT 
- * HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF 
- * CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE 
- * OR THE USE OR OTHER DEALINGS IN THE SOFTWARE. 
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
+ * INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A
+ * PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
+ * HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF
+ * CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE
+ * OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 package com.codename1.uikit.pheonixui;
 
@@ -30,7 +30,7 @@ public class SignInForm extends com.codename1.ui.Form {
     public SignInForm() {
         this(com.codename1.ui.util.Resources.getGlobalResources());
     }
-    
+
     public SignInForm(com.codename1.ui.util.Resources resourceObjectInstance) {
         initGuiBuilderComponents(resourceObjectInstance);
         getTitleArea().setUIID("Container");
@@ -41,7 +41,7 @@ public class SignInForm extends com.codename1.ui.Form {
         getContentPane().setUIID("SignInForm");
     }
 
-//-- DON'T EDIT BELOW THIS LINE!!!
+    //-- DON'T EDIT BELOW THIS LINE!!!
     private com.codename1.ui.Container gui_Container_1 = new com.codename1.ui.Container(new com.codename1.ui.layouts.BoxLayout(com.codename1.ui.layouts.BoxLayout.Y_AXIS));
     private com.codename1.ui.Label gui_Label_1 = new com.codename1.ui.Label();
     private com.codename1.ui.ComponentGroup gui_Component_Group_1 = new com.codename1.ui.ComponentGroup();
@@ -52,7 +52,7 @@ public class SignInForm extends com.codename1.ui.Form {
     private com.codename1.ui.Button gui_Button_1 = new com.codename1.ui.Button();
 
 
-// <editor-fold defaultstate="collapsed" desc="Generated Code">                          
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">
     private void guiBuilderBindComponentListeners() {
         EventCallbackClass callback = new EventCallbackClass();
         gui_Button_2.addActionListener(callback);
@@ -117,7 +117,7 @@ public class SignInForm extends com.codename1.ui.Form {
         gui_Button_1.setName("Button_1");
     }// </editor-fold>
 
-//-- DON'T EDIT ABOVE THIS LINE!!!
+    //-- DON'T EDIT ABOVE THIS LINE!!!
     public void onButton_2ActionEvent(com.codename1.ui.events.ActionEvent ev) {
         new InboxForm().show();
     }

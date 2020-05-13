@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<component type="Form" layout="GridLayout" gridLayoutRows="2" gridLayoutColumns="1"  title="" name="Urgence">
+  <component type="Maps" name="Urgence">
+  </component>
+</component>
