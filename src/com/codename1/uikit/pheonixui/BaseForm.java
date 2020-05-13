@@ -24,7 +24,6 @@ import com.codename1.ui.Container;
 import com.codename1.ui.Form;
 import com.codename1.ui.Image;
 import com.codename1.ui.Label;
-import com.codename1.ui.layouts.BoxLayout;
 import com.codename1.ui.layouts.FlowLayout;
 import com.codename1.ui.util.Resources;
 
@@ -69,7 +68,7 @@ public class BaseForm extends Form {
         getToolbar().addCommandToSideMenu("Calendar", calendarImage, e -> new CalendarForm(res).show());
         getToolbar().addCommandToSideMenu("Urgences", urgenceImage, e -> new Urgence(res).show());
         getToolbar().addCommandToSideMenu("Expeditions", null, e -> {});
-        getToolbar().addCommandToSideMenu("Produits", produitsImage, e -> new Produits(res).show());
+        getToolbar().addCommandToSideMenu("Produits", produitsImage, e -> new ProduitsForm(res).show());
         getToolbar().addCommandToSideMenu("Trending", trendingImage, e -> new TrendingForm(res).show());
         getToolbar().addCommandToSideMenu("Settings", null, e -> {});
         

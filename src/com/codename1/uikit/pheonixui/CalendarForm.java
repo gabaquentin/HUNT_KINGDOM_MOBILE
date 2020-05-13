@@ -128,7 +128,7 @@ public class CalendarForm extends BaseForm {
                 add(BorderLayout.EAST, loc);
     }
     
-//-- DON'T EDIT BELOW THIS LINE!!!
+////-- DON'T EDIT BELOW THIS LINE!!!
     protected com.codename1.ui.Calendar gui_Calendar_1 = new com.codename1.ui.Calendar();
 
 
@@ -139,9 +139,9 @@ public class CalendarForm extends BaseForm {
                 setInlineStylesTheme(resourceObjectInstance);
         setTitle("");
         setName("CalendarForm");
-        addComponent(gui_Calendar_1);
                 gui_Calendar_1.setInlineStylesTheme(resourceObjectInstance);
         gui_Calendar_1.setName("Calendar_1");
+        addComponent(gui_Calendar_1);
     }// </editor-fold>
 
 //-- DON'T EDIT ABOVE THIS LINE!!!
