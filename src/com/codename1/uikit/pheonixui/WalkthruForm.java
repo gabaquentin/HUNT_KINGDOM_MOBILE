@@ -128,8 +128,8 @@ public class WalkthruForm extends com.codename1.ui.Form {
         gui_tab1.setSelected(true);
         
         Image bla = resourceObjectInstance.getImage("bla.jpg");
-        Image griffith = resourceObjectInstance.getImage("griffith.jpg");
-        Image learn = resourceObjectInstance.getImage("learn-codename-one.jpg");
+        Image griffith = resourceObjectInstance.getImage("bla.jpg");
+        Image learn = resourceObjectInstance.getImage("bla.jpg");
         
         gui_tab1Root.setLayout(new BorderLayout());
         gui_tab2Root.setLayout(new BorderLayout());
@@ -223,7 +223,7 @@ public class WalkthruForm extends com.codename1.ui.Form {
 
     
     
-//-- DON'T EDIT BELOW THIS LINE!!!
+////-- DON'T EDIT BELOW THIS LINE!!!
     protected com.codename1.ui.Tabs gui_Tabs_1 = new com.codename1.ui.Tabs();
     protected com.codename1.ui.Container gui_tab1Root = new com.codename1.ui.Container(new com.codename1.ui.layouts.BoxLayout(com.codename1.ui.layouts.BoxLayout.Y_AXIS));
     protected com.codename1.ui.Container gui_tab2Root = new com.codename1.ui.Container(new com.codename1.ui.layouts.FlowLayout());
@@ -280,12 +280,11 @@ public class WalkthruForm extends com.codename1.ui.Form {
                 setInlineStylesTheme(resourceObjectInstance);
         setTitle("");
         setName("WalkthruForm");
-        addComponent(com.codename1.ui.layouts.BorderLayout.CENTER, gui_Tabs_1);
                 gui_Tabs_1.setInlineStylesTheme(resourceObjectInstance);
         gui_Tabs_1.setName("Tabs_1");
-        gui_Tabs_1.addTab("Tab 0" ,gui_tab1Root);
-        gui_Tabs_1.addTab("Tab 1" ,gui_tab2Root);
-        gui_Tabs_1.addTab("Tab 2" ,gui_tab3Root);
+                gui_Container_4.setInlineStylesTheme(resourceObjectInstance);
+        gui_Container_4.setName("Container_4");
+        addComponent(com.codename1.ui.layouts.BorderLayout.CENTER, gui_Tabs_1);
         gui_tab1Root.setUIID("Card");
                 gui_tab1Root.setInlineStylesTheme(resourceObjectInstance);
         gui_tab1Root.setName("tab1Root");
@@ -293,17 +292,20 @@ public class WalkthruForm extends com.codename1.ui.Form {
         gui_tab2Root.setName("tab2Root");
                 gui_tab3Root.setInlineStylesTheme(resourceObjectInstance);
         gui_tab3Root.setName("tab3Root");
+        gui_Tabs_1.addTab("Tab 0" ,gui_tab1Root);
+        gui_Tabs_1.addTab("Tab 1" ,gui_tab2Root);
+        gui_Tabs_1.addTab("Tab 2" ,gui_tab3Root);
         addComponent(com.codename1.ui.layouts.BorderLayout.SOUTH, gui_Container_4);
-                gui_Container_4.setInlineStylesTheme(resourceObjectInstance);
-        gui_Container_4.setName("Container_4");
-        gui_Container_4.addComponent(gui_Container_3);
                 gui_Container_3.setInlineStylesTheme(resourceObjectInstance);
         gui_Container_3.setName("Container_3");
         ((com.codename1.ui.layouts.FlowLayout)gui_Container_3.getLayout()).setAlign(com.codename1.ui.Component.CENTER);
         ((com.codename1.ui.layouts.FlowLayout)gui_Container_3.getLayout()).setValign(com.codename1.ui.Component.CENTER);
-        gui_Container_3.addComponent(gui_tab1);
-        gui_Container_3.addComponent(gui_tab2);
-        gui_Container_3.addComponent(gui_tab3);
+        gui_Container_6.setUIID("GetStartedButton");
+                gui_Container_6.setInlineStylesTheme(resourceObjectInstance);
+        gui_Container_6.setName("Container_6");
+        ((com.codename1.ui.layouts.FlowLayout)gui_Container_6.getLayout()).setAlign(com.codename1.ui.Component.CENTER);
+        ((com.codename1.ui.layouts.FlowLayout)gui_Container_6.getLayout()).setValign(com.codename1.ui.Component.CENTER);
+        gui_Container_4.addComponent(gui_Container_3);
         gui_tab1.setSelected(false);
         gui_tab1.setUIID("Label");
                 gui_tab1.setInlineStylesTheme(resourceObjectInstance);
@@ -320,14 +322,10 @@ public class WalkthruForm extends com.codename1.ui.Form {
         gui_tab3.setName("tab3");
         gui_tab3.setIcon(resourceObjectInstance.getImage("walthru-radio-unselected.png"));
         gui_tab3.setPressedIcon(resourceObjectInstance.getImage("walthru-radio-selected.png"));
+        gui_Container_3.addComponent(gui_tab1);
+        gui_Container_3.addComponent(gui_tab2);
+        gui_Container_3.addComponent(gui_tab3);
         gui_Container_4.addComponent(gui_Container_6);
-        gui_Container_6.setUIID("GetStartedButton");
-                gui_Container_6.setInlineStylesTheme(resourceObjectInstance);
-        gui_Container_6.setName("Container_6");
-        ((com.codename1.ui.layouts.FlowLayout)gui_Container_6.getLayout()).setAlign(com.codename1.ui.Component.CENTER);
-        ((com.codename1.ui.layouts.FlowLayout)gui_Container_6.getLayout()).setValign(com.codename1.ui.Component.CENTER);
-        gui_Container_6.addComponent(gui_Button_1);
-        gui_Container_6.addComponent(gui_Label_1);
         gui_Button_1.setText("Get Started");
         gui_Button_1.setUIID("GetStartedButton");
                 gui_Button_1.setInlineStylesTheme(resourceObjectInstance);
@@ -337,19 +335,8 @@ public class WalkthruForm extends com.codename1.ui.Form {
                 gui_Label_1.setInlineStylesTheme(resourceObjectInstance);
         gui_Label_1.setName("Label_1");
         com.codename1.ui.FontImage.setMaterialIcon(gui_Label_1,"\ue5c8".charAt(0));
-                gui_Container_3.setInlineStylesTheme(resourceObjectInstance);
-        gui_Container_3.setName("Container_3");
-        ((com.codename1.ui.layouts.FlowLayout)gui_Container_3.getLayout()).setAlign(com.codename1.ui.Component.CENTER);
-        ((com.codename1.ui.layouts.FlowLayout)gui_Container_3.getLayout()).setValign(com.codename1.ui.Component.CENTER);
-        gui_Container_6.setUIID("GetStartedButton");
-                gui_Container_6.setInlineStylesTheme(resourceObjectInstance);
-        gui_Container_6.setName("Container_6");
-        ((com.codename1.ui.layouts.FlowLayout)gui_Container_6.getLayout()).setAlign(com.codename1.ui.Component.CENTER);
-        ((com.codename1.ui.layouts.FlowLayout)gui_Container_6.getLayout()).setValign(com.codename1.ui.Component.CENTER);
-                gui_Tabs_1.setInlineStylesTheme(resourceObjectInstance);
-        gui_Tabs_1.setName("Tabs_1");
-                gui_Container_4.setInlineStylesTheme(resourceObjectInstance);
-        gui_Container_4.setName("Container_4");
+        gui_Container_6.addComponent(gui_Button_1);
+        gui_Container_6.addComponent(gui_Label_1);
     }// </editor-fold>
 
 //-- DON'T EDIT ABOVE THIS LINE!!!

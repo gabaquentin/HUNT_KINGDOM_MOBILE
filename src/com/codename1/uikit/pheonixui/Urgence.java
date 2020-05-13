@@ -28,10 +28,24 @@ public class Urgence extends BaseForm {
     }
 
 
-    //-- DON'T EDIT BELOW THIS LINE!!!
-    //private com.codename1.ui.urgence gui_Calendar_1 = new com.codename1.ui.Calendar();
+    ////-- DON'T EDIT BELOW THIS LINE!!!
+    //protected com.codename1.ui.Maps gui_Urgence = new com.codename1.ui.Maps();
 
-    //-- DON'T EDIT ABOVE THIS LINE!!!
+
+// <editor-fold defaultstate="collapsed" desc="Generated Code">
+/*
+    private void initGuiBuilderComponents(com.codename1.ui.util.Resources resourceObjectInstance) {
+        setLayout(new com.codename1.ui.layouts.GridLayout(2, 1));
+        setInlineStylesTheme(resourceObjectInstance);
+                setInlineStylesTheme(resourceObjectInstance);
+        setTitle("");
+        setName("Urgence");
+                gui_Urgence.setInlineStylesTheme(resourceObjectInstance);
+        gui_Urgence.setName("Urgence");
+        addComponent(gui_Urgence);
+    }// </editor-fold>
+**/
+//-- DON'T EDIT ABOVE THIS LINE!!!
 
     @Override
     protected boolean isCurrentCalendar() {
