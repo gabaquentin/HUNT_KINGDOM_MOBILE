@@ -49,7 +49,7 @@ public class ProduitsForm extends BaseForm {
     SpanLabel lb;
 
     ServiceProduits ser=new ServiceProduits();
-    
+
 
     public ProduitsForm() {
         this(com.codename1.ui.util.Resources.getGlobalResources());
@@ -61,10 +61,11 @@ public class ProduitsForm extends BaseForm {
         prod = ser.getAllProducts();
         
          */
+        setTitle(" Produits");
 
         installSidemenu(resourceObjectInstance);
         getToolbar().addMaterialCommandToRightBar("", FontImage.MATERIAL_PUBLIC, e -> {});
-        setTitle("Catalogue produits");
+
 
 /*
         SpanLabel sp = new SpanLabel();
@@ -81,9 +82,7 @@ public class ProduitsForm extends BaseForm {
         prod = ser.getAllProducts();
         if(prod!=null && !prod.isEmpty())
         {initi();}
-        f.getToolbar().addCommandToRightBar("back", null, (ev)->{ProdForm h=new ProdForm();
-            h.getF().show();
-        });
+
 
 
     }
@@ -213,6 +212,7 @@ public class ProduitsForm extends BaseForm {
         f = new Form("Catalogue Produits", new BorderLayout());
         ArrayList<Map<String, Object>> data = new ArrayList<>();
 
+
         for(int i =0;i<prod.size();i++)
         {
             String filePath = "file:///D:/wamp64/www/Back/web/uploads/images/"+prod.get(i).getImage();
@@ -254,6 +254,9 @@ public class ProduitsForm extends BaseForm {
             h.getF().show();
 
 
+        });
+        f.getToolbar().addCommandToRightBar("Retour", null, (ev)->{ProdForm h=new ProdForm();
+            h.show();
         });
     }
 

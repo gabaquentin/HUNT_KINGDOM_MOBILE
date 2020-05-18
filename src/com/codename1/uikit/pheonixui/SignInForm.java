@@ -114,10 +114,10 @@ public class SignInForm extends com.codename1.ui.Form {
         gui_Button_3.setName("Button_3");
         gui_Container_1.addComponent(gui_Label_1);
         gui_Container_1.addComponent(gui_Component_Group_1);
-        gui_Text_Field_2.setText("TextField");
+        gui_Text_Field_2.setText("");
                 gui_Text_Field_2.setInlineStylesTheme(resourceObjectInstance);
         gui_Text_Field_2.setName("Text_Field_2");
-        gui_Text_Field_1.setText("TextField");
+        gui_Text_Field_1.setText("");
                 gui_Text_Field_1.setInlineStylesTheme(resourceObjectInstance);
         gui_Text_Field_1.setName("Text_Field_1");
         gui_Component_Group_1.addComponent(gui_Text_Field_2);

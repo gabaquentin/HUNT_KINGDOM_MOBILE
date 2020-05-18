@@ -8,13 +8,18 @@ package com.codename1.uikit.pheonixui;
 
 
 
+import com.codename1.components.SpanLabel;
+import com.codename1.io.ConnectionRequest;
 import com.codename1.io.FileSystemStorage;
+import com.codename1.io.NetworkManager;
 import com.codename1.ui.*;
 import com.codename1.ui.util.Resources;
 import com.codename1.uikit.pheonixui.entities.Produits;
 import com.codename1.uikit.pheonixui.ProduitsForm;
 
 
+import java.io.IOException;
+import java.io.InputStream;
 import java.text.SimpleDateFormat;
 import java.util.TimeZone;
 
@@ -27,7 +32,7 @@ import static com.codename1.push.PushContent.setTitle;
  */
 public class AffichageDetails extends BaseForm {
     Form f;
-    Label lb_description;
+    //Label lb_description;
     Label lb_price;
     Label lb_nomP;
     Image img;
@@ -36,6 +41,10 @@ public class AffichageDetails extends BaseForm {
     public AffichageDetails(Produits p)
     {
         f = new Form("Details Produit");
+
+        f.getToolbar().addCommandToRightBar("Retour", null, (ev)->{ProduitsForm h=new ProduitsForm();
+            h.getF().show();
+        });
         /*
         Resources resourceObjectInstance = null;
         installSidemenu(resourceObjectInstance);
@@ -74,7 +83,9 @@ public class AffichageDetails extends BaseForm {
         lb_price = new Label("Prix: "+p.getPrix()+" DT");
         f.add(lb_price);
 
-        lb_description = new Label("Description: \n"+p.getDescription());
+        //lb_description = new Label("Description: \n"+p.getDescription());
+        SpanLabel lb_description  = new SpanLabel();
+        lb_description.setText("Description: \n"+p.getDescription());
         f.add(lb_description);
 //        btnPanier.setAlignment(4);
 
@@ -83,6 +94,25 @@ public class AffichageDetails extends BaseForm {
 
 
         f.add(btnPanier);
+
+
+        btnPanier.addActionListener((e)->{
+            String myURL = "https://rest.nexmo.com/sms/json?api_key=a4c50a1f&api_secret=yBqkXdnUyB7InkAM&to=21624760280" + "&from=HuntKingdom&text="+p.getNomProduit()+ "Ajouté au panier";
+            ConnectionRequest cntRqst = new ConnectionRequest() {
+                protected void readResponse(InputStream in) throws IOException {
+                }
+                @Override
+                protected void postResponse() {
+                    Dialog.show("SMS", "SMS Envoyé Avec Succès", "OK", null);
+                }
+            };
+            cntRqst.setUrl(myURL);
+            NetworkManager.getInstance().addToQueue(cntRqst);
+        }
+
+
+
+);
 
 
 
