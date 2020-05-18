@@ -33,7 +33,9 @@ import com.codename1.ui.util.Resources;
  * @author Shai Almog
  */
 public class BaseForm extends Form {
+    Form f;
     public void installSidemenu(Resources res) {
+
         Image selection = res.getImage("selection-in-sidemenu.png");
         
         Image inboxImage = null;
@@ -95,4 +97,9 @@ public class BaseForm extends Form {
     protected boolean isCurrentStats() {
         return false;
     }
+
+    public Form getF() {
+        return f;
+    }
 }
+

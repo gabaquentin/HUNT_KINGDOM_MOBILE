@@ -37,11 +37,8 @@ import java.util.Map;
 public class ProdForm extends BaseForm {
 
     Form f;
-    TextField tnom;
-    TextField tetat;
-    TextField trecherche;
-    Button btnrecherche;
-    Button btnajout,btnaff,btnStat;
+
+    Button btnaff,btnStat;
     ServiceProduits ser=new ServiceProduits();
     ArrayList<Produits> produits = new ArrayList<>();
     SpanLabel lb;
@@ -52,8 +49,12 @@ public class ProdForm extends BaseForm {
 
 
 
+
         btnaff=new Button("Catalogue Produits");
         btnStat = new Button("Statistique Produits");
+        f.getToolbar().addCommandToRightBar("Retour", null, (ev)->{BaseForm h=new BaseForm();
+            h.getF().show();
+        });
 
 
         f.add(lb);
@@ -66,13 +67,17 @@ public class ProdForm extends BaseForm {
         });*/
 
 
-
         f.add(btnaff);
         f.add(btnStat);
         btnaff.addActionListener((e)->{
             ProduitsForm a=new ProduitsForm();
             a.getF().show();
         });
+
+
+
+
+
 
     }
 
