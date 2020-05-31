@@ -89,16 +89,63 @@ public class UrgenceAddForm extends com.codename1.ui.Form {
     }
 
     //-- DON'T EDIT BELOW THIS LINE!!!
+    protected com.codename1.ui.TextArea gui_description = new com.codename1.ui.TextArea();
+    protected com.codename1.ui.CheckBox gui_checkbox = new com.codename1.ui.CheckBox();
+    protected com.codename1.ui.TextField gui_Text_Field = new com.codename1.ui.TextField();
+    protected com.codename1.ui.Container gui_Box_Layout_X = new com.codename1.ui.Container(new com.codename1.ui.layouts.BorderLayout());
+    protected com.codename1.ui.Container gui_Box_Layout_X_1 = new com.codename1.ui.Container(new com.codename1.ui.layouts.BorderLayout());
+    protected com.codename1.ui.ComboBox gui_expedition = new com.codename1.ui.ComboBox();
+    protected com.codename1.ui.Button gui_Button = new com.codename1.ui.Button();
 
 
 // <editor-fold defaultstate="collapsed" desc="Generated Code">                          
     private void initGuiBuilderComponents(com.codename1.ui.util.Resources resourceObjectInstance) {
-        setLayout(new com.codename1.ui.layouts.FlowLayout());
+        setLayout(new com.codename1.ui.layouts.BoxLayout(com.codename1.ui.layouts.BoxLayout.Y_AXIS));
         setInlineStylesTheme(resourceObjectInstance);
         setScrollableY(false);
                 setInlineStylesTheme(resourceObjectInstance);
         setTitle("UrgenceAddForm");
         setName("UrgenceAddForm");
+        addComponent(gui_description);
+        addComponent(gui_checkbox);
+        addComponent(gui_Text_Field);
+        addComponent(gui_Box_Layout_X);
+                gui_Box_Layout_X.setInlineStylesTheme(resourceObjectInstance);
+        gui_Box_Layout_X.setName("Box_Layout_X");
+        ((com.codename1.ui.layouts.BorderLayout)gui_Box_Layout_X.getLayout()).setCenterBehavior(com.codename1.ui.layouts.BorderLayout.CENTER_BEHAVIOR_CENTER);
+        gui_Box_Layout_X.addComponent(com.codename1.ui.layouts.BorderLayout.NORTH, gui_Box_Layout_X_1);
+                gui_Box_Layout_X_1.setInlineStylesTheme(resourceObjectInstance);
+        gui_Box_Layout_X_1.setName("Box_Layout_X_1");
+        ((com.codename1.ui.layouts.BorderLayout)gui_Box_Layout_X_1.getLayout()).setCenterBehavior(com.codename1.ui.layouts.BorderLayout.CENTER_BEHAVIOR_CENTER);
+        gui_Box_Layout_X_1.addComponent(com.codename1.ui.layouts.BorderLayout.SOUTH, gui_expedition);
+                gui_expedition.setInlineStylesTheme(resourceObjectInstance);
+        gui_expedition.setInlineAllStyles("border:1.0px underline 6da85a; bgColor:cccccc;");
+        gui_expedition.setName("expedition");
+        gui_Box_Layout_X.addComponent(com.codename1.ui.layouts.BorderLayout.CENTER, gui_Button);
+                gui_Box_Layout_X_1.setInlineStylesTheme(resourceObjectInstance);
+        gui_Box_Layout_X_1.setName("Box_Layout_X_1");
+        ((com.codename1.ui.layouts.BorderLayout)gui_Box_Layout_X_1.getLayout()).setCenterBehavior(com.codename1.ui.layouts.BorderLayout.CENTER_BEHAVIOR_CENTER);
+        gui_Button.setText("Envoyer");
+                gui_Button.setInlineStylesTheme(resourceObjectInstance);
+        gui_Button.setName("Button");
+        gui_description.setHint("Description");
+                gui_description.setInlineStylesTheme(resourceObjectInstance);
+        gui_description.setInlineAllStyles("border:1.0px underline 6da85a;");
+        gui_description.setName("description");
+        gui_description.setColumns(8);
+        gui_description.setRows(3);
+        gui_checkbox.setSelected(false);
+        gui_checkbox.setText("Expedition ?");
+                gui_checkbox.setInlineStylesTheme(resourceObjectInstance);
+        gui_checkbox.setInlineAllStyles("border:none;");
+        gui_checkbox.setName("checkbox");
+        gui_Text_Field.setHint("Entourage");
+                gui_Text_Field.setInlineStylesTheme(resourceObjectInstance);
+        gui_Text_Field.setInlineAllStyles("border:1.0px underline 6da85a;");
+        gui_Text_Field.setName("Text_Field");
+                gui_Box_Layout_X.setInlineStylesTheme(resourceObjectInstance);
+        gui_Box_Layout_X.setName("Box_Layout_X");
+        ((com.codename1.ui.layouts.BorderLayout)gui_Box_Layout_X.getLayout()).setCenterBehavior(com.codename1.ui.layouts.BorderLayout.CENTER_BEHAVIOR_CENTER);
     }// </editor-fold>
 
 //-- DON'T EDIT ABOVE THIS LINE!!!
