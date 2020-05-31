@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<component type="Form" layout="BoxLayout" boxLayoutAxis="Y"  title="UrgenceAddForm" scrollableY="false" name="UrgenceAddForm">
+  <component type="TextArea" styles="border:1.0px underline 6da85a;" hint="Description" rows="3" columns="8" name="description">
+  </component>
+  <component type="CheckBox" text="Expedition ?" styles="border:none;" selected="false" name="checkbox">
+  </component>
+  <component type="TextField" styles="border:1.0px underline 6da85a;" hint="Entourage" name="Text_Field">
+  </component>
+  <component type="Container" layout="BorderLayout" borderLayoutAbsoluteCenter="true"  name="Box_Layout_X">
+    <component type="Container" layout="BorderLayout" borderLayoutAbsoluteCenter="true"  name="Box_Layout_X_1">
+      <layoutConstraint value="North" />
+      <component type="ComboBox" styles="border:1.0px underline 6da85a; bgColor:cccccc;" name="expedition">
+        <layoutConstraint value="South" />
+      </component>
+    </component>
+    <component type="Button" text="Envoyer" name="Button">
+      <layoutConstraint value="Center" />
+    </component>
+  </component>
+</component>

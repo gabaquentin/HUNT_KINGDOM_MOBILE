@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<component type="Form" layout="BorderLayout" borderLayoutAbsoluteCenter="true"  title="" uiid="Splash" name="SplashForm">
+<component type="Form" layout="BorderLayout" borderLayoutAbsoluteCenter="true"  uiid="Splash" styles="bgColor:6da85a; fgColor:6da85a; transparency:38; bgType:gradient_linear_vertical; bgImage:null; alignment:center;" title="" scrollableY="false" name="SplashForm">
   <component type="Container" layout="BoxLayout" boxLayoutAxis="Y"  name="Container_1">
-    <layoutConstraint value="Center" />
+    <layoutConstraint value="East" />
     <component type="Container" layout="FlowLayout" flowLayoutFillRows="false" flowLayoutAlign="4" flowLayoutValign="0"  name="Container_2">
-      <component type="InfiniteProgress" name="Infinite_Progress_1">
-      </component>
     </component>
-    <component type="Label" icon="resFile:logo.png" name="Label_1">
-    </component>
+  </component>
+  <component type="InfiniteProgress" name="Infinite_Progress_1">
+    <layoutConstraint value="Center" />
   </component>
 </component>

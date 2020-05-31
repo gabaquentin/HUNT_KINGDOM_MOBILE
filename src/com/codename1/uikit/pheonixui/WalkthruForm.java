@@ -127,20 +127,20 @@ public class WalkthruForm extends com.codename1.ui.Form {
         bg.add(gui_tab3);
         gui_tab1.setSelected(true);
         
-        Image bla = resourceObjectInstance.getImage("bla.jpg");
-        Image griffith = resourceObjectInstance.getImage("griffith.jpg");
+        Image bla = resourceObjectInstance.getImage("banner1.jpg");
+        Image griffith = resourceObjectInstance.getImage("banner2.jpg");
         Image learn = resourceObjectInstance.getImage("learn-codename-one.jpg");
         
         gui_tab1Root.setLayout(new BorderLayout());
         gui_tab2Root.setLayout(new BorderLayout());
         gui_tab3Root.setLayout(new BorderLayout());
         
-        String line1 =  "The rule of thirds states that an image is\nmost pleasing when its subjects or\nregions are ...";
+        String line1 =  "La chasse n'as jamais ete aussi simple avec le materiel disponible dans notre boutique";
         if(!Display.getInstance().isTablet()) {
             line1 = line1.replace('\n', ' ');
         }
 
-        String line2 =  "The second page of a wizard is important\nbut nothing beats the third page ...";
+        String line2 =  "Partage tes meilleurs moments avec notre comunaute";
         if(!Display.getInstance().isTablet()) {
             line2 = line2.replace('\n', ' ');
         }
@@ -151,13 +151,13 @@ public class WalkthruForm extends com.codename1.ui.Form {
         }
         
         Container content1 = BoxLayout.encloseY(
-                new Label("Rule of thirds", "WelcomeTitle"),
+                new Label("Saison de chasse", "WelcomeTitle"),
                 new Label(resourceObjectInstance.getImage("welcome-separator.png"), "WelcomeTitle"),
                 new SpanLabel(line1, "WelcomeBody")
         );
 
         Container content2 = BoxLayout.encloseY(
-                new Label("Rule of Page 2", "WelcomeTitle"),
+                new Label("Partie de peche", "WelcomeTitle"),
                 new Label(resourceObjectInstance.getImage("welcome-separator.png"), "WelcomeTitle"),
                 new SpanLabel(line2, "WelcomeBody")
         );
@@ -315,7 +315,7 @@ public class WalkthruForm extends com.codename1.ui.Form {
         ((com.codename1.ui.layouts.FlowLayout)gui_Container_6.getLayout()).setValign(com.codename1.ui.Component.CENTER);
         gui_Container_6.addComponent(gui_Button_1);
         gui_Container_6.addComponent(gui_Label_1);
-        gui_Button_1.setText("Get Started");
+        gui_Button_1.setText("Commencer");
         gui_Button_1.setUIID("GetStartedButton");
         gui_Button_1.setName("Button_1");
         gui_Button_1.setTextPosition(com.codename1.ui.Component.LEFT);

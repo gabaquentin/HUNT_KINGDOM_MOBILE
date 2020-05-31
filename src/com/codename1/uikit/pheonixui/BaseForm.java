@@ -48,6 +48,9 @@ public class BaseForm extends Form {
         
         Image statsImage = null;
         if(isCurrentStats()) statsImage = selection;
+
+        Image urgenceImage = null;
+        if(isCurrentStats()) urgenceImage = selection;
         
         Button inboxButton = new Button("Inbox", inboxImage);
         inboxButton.setUIID("SideCommand");
@@ -61,7 +64,8 @@ public class BaseForm extends Form {
         
         getToolbar().addCommandToSideMenu("Stats", statsImage, e -> new StatsForm(res).show());
         getToolbar().addCommandToSideMenu("Calendar", calendarImage, e -> new CalendarForm(res).show());
-        getToolbar().addCommandToSideMenu("Map", null, e -> {});
+        getToolbar().addCommandToSideMenu("Urgences", urgenceImage, e -> new Urgence(res).show());
+        getToolbar().addCommandToSideMenu("Expeditions", null, e -> {});
         getToolbar().addCommandToSideMenu("Trending", trendingImage, e -> new TrendingForm(res).show());
         getToolbar().addCommandToSideMenu("Settings", null, e -> {});
         
