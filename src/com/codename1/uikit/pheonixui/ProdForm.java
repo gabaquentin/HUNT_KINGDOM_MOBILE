@@ -6,6 +6,9 @@
 package com.codename1.uikit.pheonixui;
 
 import com.codename1.components.SpanLabel;
+import com.codename1.db.Cursor;
+import com.codename1.db.Database;
+import com.codename1.db.Row;
 import com.codename1.io.ConnectionRequest;
 import com.codename1.io.FileSystemStorage;
 import com.codename1.io.NetworkEvent;
@@ -23,6 +26,7 @@ import com.codename1.ui.list.DefaultListModel;
 import com.codename1.ui.list.MultiList;
 import com.codename1.ui.util.Resources;
 import com.codename1.uikit.pheonixui.entities.Produits;
+import com.codename1.uikit.pheonixui.entities.Users;
 import com.codename1.uikit.pheonixui.services.ServiceProduits;
 
 import java.io.IOException;
@@ -45,30 +49,47 @@ public class ProdForm extends BaseForm {
 
     public ProdForm(Resources resourceObjectInstance) {
         f = new Form("Boutique");
-        lb = new SpanLabel("");
+        lb = new SpanLabel();
+
+
+
+
+        Database db;
+        try {
+            db=Database.openOrCreate("User");
+            Cursor cur = db.executeQuery("select nom from user where etat=1");
+            while (cur.next()) {
+                Row row = cur.getRow();
+                String nom = row.getString(0);
+                f.getToolbar().addCommandToRightBar(nom, null, (ev)->{BaseForm h=new BaseForm();
+                    h.getF().show();
+                });
+            }
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+
+
 
 
 
 
         btnaff=new Button("Catalogue Produits");
-        btnStat = new Button("Statistique Produits");
-        f.getToolbar().addCommandToRightBar("Retour", null, (ev)->{BaseForm h=new BaseForm();
-            h.getF().show();
-        });
+        btnStat = new Button("Favoris");
+
 
 
         f.add(lb);
-       /* btnrecherche.addActionListener((e) -> {
-            ServiceVoyage ser = new ServiceVoyage();
-            Voyage v = new Voyage();
-            ser.FindVoyage(v);
 
 
-        });*/
 
+        btnaff.getAllStyles().setMarginLeft(15);
 
         f.add(btnaff);
+        btnStat.getAllStyles().setMarginLeft(15);
         f.add(btnStat);
+
+
         btnaff.addActionListener((e)->{
             ProduitsForm a=new ProduitsForm();
             a.getF().show();

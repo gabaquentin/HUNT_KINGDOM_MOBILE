@@ -21,28 +21,22 @@ package com.codename1.uikit.pheonixui;
 import com.codename1.db.Cursor;
 import com.codename1.db.Database;
 import com.codename1.db.Row;
-import com.codename1.ui.Dialog;
 import com.codename1.ui.FontImage;
-import com.codename1.uikit.pheonixui.entities.Produits;
-import com.codename1.uikit.pheonixui.entities.Users;
-import com.codename1.uikit.pheonixui.services.ServiceProduits;
 
 import java.io.IOException;
-import java.util.ArrayList;
 
 /**
  * GUI builder created Form
  *
  * @author Shai Almog
  */
-public class SignInForm extends com.codename1.ui.Form {
+public class SignUpForm extends com.codename1.ui.Form {
 
-
-    public SignInForm() {
+    public SignUpForm() {
         this(com.codename1.ui.util.Resources.getGlobalResources());
     }
 
-    public SignInForm(com.codename1.ui.util.Resources resourceObjectInstance) {
+    public SignUpForm(com.codename1.ui.util.Resources resourceObjectInstance) {
         initGuiBuilderComponents(resourceObjectInstance);
         getTitleArea().setUIID("Container");
         getToolbar().setUIID("Container");
@@ -50,39 +44,29 @@ public class SignInForm extends com.codename1.ui.Form {
         FontImage mat = FontImage.createMaterial(FontImage.MATERIAL_CLOSE, "SigninTitle", 3.5f);
         getToolbar().addCommandToLeftBar("", mat, e -> new SplashForm().show());
         getContentPane().setUIID("SignInForm");
-
-
     }
-
 
     //////-- DON'T EDIT BELOW THIS LINE!!!
     protected com.codename1.ui.Container gui_Container_1 = new com.codename1.ui.Container(new com.codename1.ui.layouts.BoxLayout(com.codename1.ui.layouts.BoxLayout.Y_AXIS));
     protected com.codename1.ui.Label gui_Label_1 = new com.codename1.ui.Label();
     protected com.codename1.ui.Label gui_Label_2 = new com.codename1.ui.Label();
     protected com.codename1.ui.Label gui_Label_3 = new com.codename1.ui.Label();
+    protected com.codename1.ui.Label gui_Label_4 = new com.codename1.ui.Label();
     protected com.codename1.ui.ComponentGroup gui_Component_Group_1 = new com.codename1.ui.ComponentGroup();
     protected com.codename1.ui.TextField gui_Text_Field_2 = new com.codename1.ui.TextField();
     protected com.codename1.ui.TextField gui_Text_Field_1 = new com.codename1.ui.TextField();
+    protected com.codename1.ui.TextField gui_Text_Field_3 = new com.codename1.ui.TextField();
     protected com.codename1.ui.Button gui_Button_2 = new com.codename1.ui.Button();
     protected com.codename1.ui.Button gui_Button_3 = new com.codename1.ui.Button();
-    protected com.codename1.ui.Button gui_Button_4 = new com.codename1.ui.Button();
-    protected com.codename1.ui.Button gui_Button_5 = new com.codename1.ui.Button();
     protected com.codename1.ui.Button gui_Button_1 = new com.codename1.ui.Button();
     Database db;
-    ArrayList<Users> usrr = new ArrayList<>();
 
 
-
-
-
-
-// <editor-fold defaultstate="collapsed" desc="Generated Code">
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">
     private void guiBuilderBindComponentListeners() {
         EventCallbackClass callback = new EventCallbackClass();
         gui_Text_Field_1.addActionListener(callback);
         gui_Button_2.addActionListener(callback);
-
-
     }
 
     class EventCallbackClass implements com.codename1.ui.events.ActionListener, com.codename1.ui.events.DataChangedListener {
@@ -103,11 +87,7 @@ public class SignInForm extends com.codename1.ui.Form {
 
 
             if(sourceComponent == gui_Button_2) {
-                try {
-                    onButton_2ActionEvent(ev);
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
+                onButton_2ActionEvent(ev);
             }
         }
 
@@ -118,19 +98,13 @@ public class SignInForm extends com.codename1.ui.Form {
         guiBuilderBindComponentListeners();
         setLayout(new com.codename1.ui.layouts.BorderLayout());
         setInlineStylesTheme(resourceObjectInstance);
-                setInlineStylesTheme(resourceObjectInstance);
-        setTitle("Sign In");
-        setName("SignInForm");
+        setInlineStylesTheme(resourceObjectInstance);
+        setTitle("Sign Up");
+        setName("SignUpForm");
         gui_Container_1.setScrollableY(true);
         gui_Container_1.setInlineStylesTheme(resourceObjectInstance);
         gui_Container_1.setName("Container_1");
-        gui_Button_1.setText("Create New Account");
-        gui_Button_1.addActionListener((e)->{
-            SignUpForm a=new SignUpForm();
-            a.show();
-        });
-
-
+       // gui_Button_1.setText("Create New Account");
         gui_Button_1.setUIID("CenterLabel");
         gui_Button_1.setInlineStylesTheme(resourceObjectInstance);
         gui_Button_1.setName("Button_1");
@@ -141,45 +115,88 @@ public class SignInForm extends com.codename1.ui.Form {
         gui_Label_1.setIcon(resourceObjectInstance.getImage("profile_image.png"));
         gui_Component_Group_1.setInlineStylesTheme(resourceObjectInstance);
         gui_Component_Group_1.setName("Component_Group_1");
-        gui_Button_2.setText("Se Connecter");
+        gui_Button_2.setText("S'enregistrer");
         gui_Button_2.setInlineStylesTheme(resourceObjectInstance);
         gui_Button_2.setName("Button_2");
-        gui_Button_3.setText("Forgot Your Password");
+        gui_Button_3.setText("");
         gui_Button_3.setUIID("CenterLabelSmall");
         gui_Button_3.setInlineStylesTheme(resourceObjectInstance);
         gui_Button_3.setName("Button_3");
         gui_Container_1.addComponent(gui_Label_1);
         gui_Container_1.addComponent(gui_Component_Group_1);
-        //gui_Text_Field_2.setText("");
+        //gui_Text_Field_2.setText("Prénom");
         gui_Text_Field_2.setInlineStylesTheme(resourceObjectInstance);
         gui_Text_Field_2.setName("Text_Field_2");
-        //gui_Text_Field_1.setText("");
-        gui_Text_Field_1.setInlineStylesTheme(resourceObjectInstance);
-        gui_Text_Field_1.setName("Text_Field_1");
         gui_Label_2.setText("Nom: ");
         gui_Label_3.setText("Prénom:");
+        gui_Label_4.setText("Téléphone:");
+
+        //gui_Text_Field_3.setText("Téléphone");
+        gui_Text_Field_3.setInlineStylesTheme(resourceObjectInstance);
+        gui_Text_Field_3.setName("Text_Field_3");
+
+
+        //gui_Text_Field_1.setText("Nom");
+        gui_Text_Field_1.setInlineStylesTheme(resourceObjectInstance);
+        gui_Text_Field_1.setName("Text_Field_1");
+
         gui_Component_Group_1.addComponent(gui_Label_2);
-        gui_Component_Group_1.addComponent(gui_Text_Field_1);
-        gui_Component_Group_1.addComponent(gui_Label_3);
         gui_Component_Group_1.addComponent(gui_Text_Field_2);
+        gui_Component_Group_1.addComponent(gui_Label_3);
+        gui_Component_Group_1.addComponent(gui_Text_Field_1);
+        gui_Component_Group_1.addComponent(gui_Label_4);
+        gui_Component_Group_1.addComponent(gui_Text_Field_3);
         gui_Container_1.addComponent(gui_Button_2);
         gui_Container_1.addComponent(gui_Button_3);
         addComponent(com.codename1.ui.layouts.BorderLayout.SOUTH, gui_Button_1);
 
 
 
+
+
+        try {
+            db = Database.openOrCreate("User");
+            //db.execute("DROP TABLE user;");
+            db.execute("create table if not exists user (nom TEXT, prenom TEXT, telephone TEXT,etat INTEGER);");
+
+           /*
+            //db.execute("insert into user (nom, prenom, telephone) values ('imed','amri','24760280'); ");
+            db.execute("insert into user (nom, prenom,telephone) values ('" + gui_Text_Field_2.getText() + "', "+" '" + gui_Text_Field_1.getText() + "',"+" '"+ gui_Text_Field_3.getText()+"' );");
+            Cursor cur = db.executeQuery("select * from user");
+            while (cur.next()) {
+                Row row = cur.getRow();
+                String nom = row.getString(0);
+                String prenom = row.getString(1);
+                String telephone = row.getString(2);
+                System.out.println("nom :" + nom + " prenom :" + prenom+ "tel: "+telephone);
+            }
+
+            */
+        } catch (IOException e) {
+            System.out.println(""+e.getMessage());
+        }
     }// </editor-fold>
 
+    //-- DON'T EDIT ABOVE THIS LINE!!!
+    public void onButton_2ActionEvent(com.codename1.ui.events.ActionEvent ev) {
+       // new InboxForm().show();
+        try {
+            db.execute("insert into user (nom, prenom,telephone,etat) values ('" + gui_Text_Field_2.getText() + "', "+" '" + gui_Text_Field_1.getText() + "',"+" '"+ gui_Text_Field_3.getText()+"',"+"'"+0+"' );");
+            Cursor cur = db.executeQuery("select * from user");
 
-//-- DON'T EDIT ABOVE THIS LINE!!!
-    public void onButton_2ActionEvent(com.codename1.ui.events.ActionEvent ev) throws IOException {
+            while (cur.next()) {
+                Row row = cur.getRow();
+                String nom = row.getString(0);
+                String prenom = row.getString(1);
+                String telephone = row.getString(2);
+                int etat= Integer.parseInt(row.getString(3));
+                System.out.println("nom :" + nom + " prenom :" + prenom+ " tel: "+telephone +"etat: "+etat);
 
-        ServiceProduits sp=new ServiceProduits();
-        String res=sp.find(gui_Text_Field_1.getText(),gui_Text_Field_2.getText());
-        System.out.println(res);
-        db = Database.openOrCreate("User");
-        db.execute("Update user set etat=1 where nom='"+res+"'");
-
+            }
+            new SignInForm().show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
 
     }

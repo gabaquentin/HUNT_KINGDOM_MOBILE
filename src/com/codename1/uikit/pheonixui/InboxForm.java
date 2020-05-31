@@ -64,7 +64,7 @@ public class InboxForm extends BaseForm {
                         new Label("19", "InboxNumber")
                 )
         );
-        
+
         installSidemenu(resourceObjectInstance);
         
         getToolbar().addCommandToRightBar("", resourceObjectInstance.getImage("toolbar-profile-pic.png"), e -> {});

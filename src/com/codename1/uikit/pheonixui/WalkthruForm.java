@@ -21,6 +21,7 @@ package com.codename1.uikit.pheonixui;
 
 import com.codename1.components.ScaleImageLabel;
 import com.codename1.components.SpanLabel;
+import com.codename1.db.Database;
 import com.codename1.ui.ButtonGroup;
 import com.codename1.ui.Component;
 import com.codename1.ui.Container;
@@ -35,6 +36,8 @@ import com.codename1.ui.geom.Shape;
 import com.codename1.ui.layouts.BorderLayout;
 import com.codename1.ui.layouts.BoxLayout;
 import com.codename1.ui.plaf.Style;
+
+import java.io.IOException;
 
 /**
  * GUI builder created Form
@@ -51,6 +54,7 @@ public class WalkthruForm extends com.codename1.ui.Form {
         private Container parent;
         private Image pic;
         private int textHeight;
+
         
         public BgPainter(Container parent, Image pic, int textHeight) {
             this.parent = parent;
@@ -108,10 +112,12 @@ public class WalkthruForm extends com.codename1.ui.Form {
                     parent.getX() + parent.getWidth(), parent.getY() + parent.getHeight() - hh - (mm1 * 2));
             g.setClip(clip);
         }
+
         
     }
     
     public WalkthruForm(com.codename1.ui.util.Resources resourceObjectInstance) {
+
         initGuiBuilderComponents(resourceObjectInstance);
         getTitleArea().setUIID("Container");
         
@@ -167,6 +173,15 @@ public class WalkthruForm extends com.codename1.ui.Form {
                 new Label(resourceObjectInstance.getImage("welcome-separator.png"), "WelcomeTitle"),
                 new SpanLabel(line3, "WelcomeBody")
         );
+        Database db,ab;
+        try {
+            db = Database.openOrCreate("User");
+            db.execute("Update user set etat=0");
+            ab= Database.openOrCreate("ProdFav");
+            ab.execute("DROP TABLE PROD");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
         content1.setUIID("WelcomeContent");
         content2.setUIID("WelcomeContent");

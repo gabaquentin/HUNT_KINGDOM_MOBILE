@@ -9,13 +9,18 @@ package com.codename1.uikit.pheonixui;
 
 
 import com.codename1.components.SpanLabel;
+import com.codename1.db.Cursor;
+import com.codename1.db.Database;
+import com.codename1.db.Row;
 import com.codename1.io.ConnectionRequest;
 import com.codename1.io.FileSystemStorage;
 import com.codename1.io.NetworkManager;
 import com.codename1.ui.*;
+import com.codename1.ui.layouts.BorderLayout;
 import com.codename1.ui.util.Resources;
 import com.codename1.uikit.pheonixui.entities.Produits;
 import com.codename1.uikit.pheonixui.ProduitsForm;
+
 
 
 import java.io.IOException;
@@ -38,6 +43,7 @@ public class AffichageDetails extends BaseForm {
     Image img;
     Image scaledPhotoImage;
     Button btnPanier;
+    Button btnFav;
     public AffichageDetails(Produits p)
     {
         f = new Form("Details Produit");
@@ -90,40 +96,70 @@ public class AffichageDetails extends BaseForm {
 //        btnPanier.setAlignment(4);
 
         btnPanier = new Button("Ajouter Au Panier");
+        btnFav = new Button("Ajouter Au Panier 2");
+
+
+
 
 
 
         f.add(btnPanier);
+        f.add(btnFav);
 
 
         btnPanier.addActionListener((e)->{
-            String myURL = "https://rest.nexmo.com/sms/json?api_key=a4c50a1f&api_secret=yBqkXdnUyB7InkAM&to=21624760280" + "&from=HuntKingdom&text="+p.getNomProduit()+ "Ajouté au panier";
-            ConnectionRequest cntRqst = new ConnectionRequest() {
-                protected void readResponse(InputStream in) throws IOException {
+            Database db;
+            try {
+                db=Database.openOrCreate("User");
+                Cursor cur = db.executeQuery("select telephone from user where etat=1");
+                while (cur.next()) {
+                    Row row = cur.getRow();
+                    int num = Integer.parseInt(row.getString(0));
+                    System.out.println("nom :" + num );
+                    String myURL = "https://rest.nexmo.com/sms/json?api_key=7f104be5&api_secret=ngMSEGkLbvt45Se8&to="+num+"" + "&from=HuntKingdom&text="+p.getNomProduit()+ " Ajouté au panier";
+                    ConnectionRequest cntRqst = new ConnectionRequest() {
+                        protected void readResponse(InputStream in) throws IOException {
+                        }
+                        @Override
+                        protected void postResponse() {
+                            Dialog.show("SMS", "SMS Envoyé Avec Succès", "OK", null);
+                        }
+
+                    };
+                    cntRqst.setUrl(myURL);
+                    NetworkManager.getInstance().addToQueue(cntRqst);
+
+
                 }
-                @Override
-                protected void postResponse() {
-                    Dialog.show("SMS", "SMS Envoyé Avec Succès", "OK", null);
-                }
-            };
-            cntRqst.setUrl(myURL);
-            NetworkManager.getInstance().addToQueue(cntRqst);
+            } catch (IOException ex) {
+                ex.printStackTrace();
+            }
+
+
         }
 
-
-
 );
+        btnFav.addActionListener((e)->{
+            Database db;
+            try {
+                db=Database.openOrCreate("ProdFav");
+                db.execute("create table if not exists prod (nomP TEXT);");
+
+                db.execute("insert into prod (nomP) values ('"+p.getNomProduit()+"'); ");
+
+                Cursor cur = db.executeQuery("select * from prod");
+                while (cur.next()) {
+                    Row row = cur.getRow();
+                    String nom = row.getString(0);
+                }
+
+            } catch (IOException ex) {
+                ex.printStackTrace();
+            }
+            new FavorisForm().show();
 
 
-
-
-
-
-
-
-
-
-
+        });
     }
 
     public AffichageDetails(int id) {
@@ -133,5 +169,10 @@ public class AffichageDetails extends BaseForm {
     public Form getF() {
         return f;
     }
+    public void show(){
+        f.show();
+    }
+
+
 }
 
