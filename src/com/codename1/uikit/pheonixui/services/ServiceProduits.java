@@ -1,12 +1,17 @@
 package com.codename1.uikit.pheonixui.services;
 
+import com.codename1.db.Cursor;
+import com.codename1.db.Database;
+import com.codename1.db.Row;
 import com.codename1.io.CharArrayReader;
 import com.codename1.io.ConnectionRequest;
 import com.codename1.io.JSONParser;
 import com.codename1.io.NetworkEvent;
 import com.codename1.io.NetworkManager;
 import com.codename1.ui.events.ActionListener;
+import com.codename1.uikit.pheonixui.InboxForm;
 import com.codename1.uikit.pheonixui.entities.Produits;
+import com.codename1.uikit.pheonixui.entities.Users;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -23,6 +28,7 @@ public class ServiceProduits {
     public static ServiceProduits instance=null;
     public boolean resultOK;
     private ConnectionRequest connectionRequest;
+    Database db;
 
     public ServiceProduits() {
         connectionRequest = new ConnectionRequest();
@@ -81,5 +87,33 @@ public class ServiceProduits {
         NetworkManager.getInstance().addToQueueAndWait(connectionRequest);
         return produits;
     }
+
+    public String find(String nom , String prenom) throws IOException {
+        db = Database.openOrCreate("User");
+        Cursor cur = db.executeQuery("select * from user");
+        Users usr=new Users();
+
+
+        while (cur.next()) {
+            int a = 0;
+            Row row = cur.getRow();
+            String nomC = row.getString(0);
+            String prenomC = row.getString(1);
+            String telephone = row.getString(2);
+
+            if(nomC.equals(nom)==true && prenomC.equals(prenom)==true) {
+
+
+                    usr.setNom(nom);
+                    usr.setPrenom(prenom);
+                    usr.setTel(Integer.parseInt(telephone));
+                    new InboxForm().show();
+
+
+            }
+        }
+        return usr.getNom();
+    }
+
 
 }
