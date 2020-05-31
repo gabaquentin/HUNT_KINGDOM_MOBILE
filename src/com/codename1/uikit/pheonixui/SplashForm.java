@@ -56,12 +56,11 @@ public class SplashForm extends com.codename1.ui.Form {
     }
 
 //-- DON'T EDIT BELOW THIS LINE!!!
+
     protected com.codename1.ui.Container gui_Container_1 = new com.codename1.ui.Container(new com.codename1.ui.layouts.BoxLayout(com.codename1.ui.layouts.BoxLayout.Y_AXIS));
     protected com.codename1.ui.Container gui_Container_2 = new com.codename1.ui.Container(new com.codename1.ui.layouts.FlowLayout());
     protected com.codename1.components.InfiniteProgress gui_Infinite_Progress_1 = new com.codename1.components.InfiniteProgress();
     protected com.codename1.ui.Label gui_Label_1 = new com.codename1.ui.Label();
-
-
 
     // <editor-fold defaultstate="collapsed" desc="Generated Code">
     private void initGuiBuilderComponents(com.codename1.ui.util.Resources resourceObjectInstance) {

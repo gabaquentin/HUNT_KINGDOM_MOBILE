@@ -63,8 +63,9 @@ public class Urgence extends BaseForm {
 
 // <editor-fold defaultstate="collapsed" desc="Generated Code">                          
     private void initGuiBuilderComponents(com.codename1.ui.util.Resources resourceObjectInstance) {
-        setLayout(new com.codename1.ui.layouts.FlowLayout());
+        setLayout(new com.codename1.ui.layouts.BoxLayout(com.codename1.ui.layouts.BoxLayout.Y_AXIS));
         setInlineStylesTheme(resourceObjectInstance);
+        setScrollableY(false);
                 setInlineStylesTheme(resourceObjectInstance);
         setTitle("Urgence");
         setName("Urgence");

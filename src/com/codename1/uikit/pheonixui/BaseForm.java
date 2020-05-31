@@ -24,7 +24,6 @@ import com.codename1.ui.Container;
 import com.codename1.ui.Form;
 import com.codename1.ui.Image;
 import com.codename1.ui.Label;
-import com.codename1.ui.layouts.BoxLayout;
 import com.codename1.ui.layouts.FlowLayout;
 import com.codename1.ui.util.Resources;
 
@@ -34,7 +33,9 @@ import com.codename1.ui.util.Resources;
  * @author Shai Almog
  */
 public class BaseForm extends Form {
+    Form f;
     public void installSidemenu(Resources res) {
+
         Image selection = res.getImage("selection-in-sidemenu.png");
         
         Image inboxImage = null;
@@ -51,7 +52,10 @@ public class BaseForm extends Form {
 
         Image urgenceImage = null;
         if(isCurrentStats()) urgenceImage = selection;
-        
+
+        Image produitsImage = null;
+        if(isCurrentStats()) produitsImage = selection;
+
         Button inboxButton = new Button("Inbox", inboxImage);
         inboxButton.setUIID("SideCommand");
         inboxButton.getAllStyles().setPaddingBottom(0);
@@ -66,6 +70,8 @@ public class BaseForm extends Form {
         getToolbar().addCommandToSideMenu("Calendar", calendarImage, e -> new CalendarForm(res).show());
         getToolbar().addCommandToSideMenu("Urgences", urgenceImage, e -> new Urgence(res).show());
         getToolbar().addCommandToSideMenu("Expeditions", null, e -> {});
+
+        getToolbar().addCommandToSideMenu("Produits", produitsImage, e -> new ProdForm(res).show());
         getToolbar().addCommandToSideMenu("Trending", trendingImage, e -> new TrendingForm(res).show());
         getToolbar().addCommandToSideMenu("Settings", null, e -> {});
         
@@ -92,4 +98,9 @@ public class BaseForm extends Form {
     protected boolean isCurrentStats() {
         return false;
     }
+
+    public Form getF() {
+        return f;
+    }
 }
+
